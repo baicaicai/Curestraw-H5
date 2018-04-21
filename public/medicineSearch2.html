@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>搜索</title>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <style type="text/css">
+    .fSearch{
+      background: #30c4b6;
+    }
+    .page{
+      padding-bottom: calc( 20rem / 75 );
+      background: #ebf2f1;
+    }
+    .bar {
+      font-size: calc( 26rem / 75 );
+      color: #888888;
+      height: calc( 80rem / 75 );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ebf2f1;
+    }
+
+    .list{
+      padding: 0 calc( 25rem / 75 );
+      background: #fff;
+    }
+      .list .item{
+        display: flex;
+        align-items: center;
+        padding: calc( 30rem / 75 ) 0;
+        border-bottom: calc( 1rem / 75 ) solid #e3e3e3;
+      }
+      .list .item:last-child{
+        border-bottom: none;
+      }
+      .list .item .left{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .list .item .left .i1{
+        font-size: calc( 34rem / 75 );
+        font-weight: bold;
+        display: flex;
+        padding-bottom: calc( 15rem / 75 );
+      }
+      .list .item .left .i2{
+        font-size: calc( 26rem / 75 );
+        color: #888888;
+        display: block;
+        padding-bottom: calc( 35rem / 75 );
+      }
+      .list .item .left .i3{
+        display: flex;
+        align-items: center;
+      }
+      .list .item .left .i3 img {
+        width: calc( 30rem / 75 );
+        height: calc( 30rem / 75 );
+        margin-right: calc( 10rem / 75 );
+      }
+      .list .item .left .i3 span{
+        font-size: calc( 26rem / 75 );
+        width: calc( 170rem / 75 );
+        display: block;
+      }
+      .list .item .right{
+        width: calc( 200rem / 75 );
+        height: calc( 160rem / 75 );
+      }
+      .list .item .right img {
+        width: 100%;
+        height: 100%;
+      }
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<nav class='fHead'>
+    <a>
+        <img src='frame/icon-37.png'>
+    </a>
+    <span>搜索</span>
+</nav>
+<div class="page">
+    <div class='fSearch'>
+        <div>
+            <img src='frame/icon-4.png'>
+            <input></input>
+            <button id="{{fSearch1 ? 'fSearch1' : ''}}" bindtap='fSearch2'><img src='frame/icon-5.png'></button>
+        </div>
+    </div>
+
+    <div class='bar'>
+      以下为搜索结果
+    </div>
+
+    <div class='list'>
+        <div class='item'>
+            <div class='left'>
+                <span class='i1'>Opdivo-100mg</span>
+                <span class='i2'>注射液:40 mg/4 mL与100 mg/10 mL</span>
+                <div class='i3'>
+                    <img src='frame/icon-6.png'>
+                    <span>德国</span>
+                    <img src='frame/icon-7.png'>
+                    <span>16500港币</span>
+                </div>
+            </div>
+            <div class='right'>
+                <img src='images/img-9.jpg' mode='scaleToFill'>
+            </div>
+        </div>
+        
+        <div class='item'>
+            <div class='left'>
+                <span class='i1'>Opdivo-100mg</span>
+                <span class='i2'>注射液:40 mg/4 mL与100 mg/10 mL</span>
+                <div class='i3'>
+                    <img src='frame/icon-6.png'>
+                    <span>德国</span>
+                    <img src='frame/icon-7.png'>
+                    <span>16500港币</span>
+                </div>
+            </div>
+            <div class='right'>
+                <img src='images/img-10.jpg' mode='scaleToFill'>
+            </div>
+        </div>
+
+        <div class='item'>
+            <div class='left'>
+                <span class='i1'>Opdivo-100mg</span>
+                <span class='i2'>注射液:40 mg/4 mL与100 mg/10 mL</span>
+                <div class='i3'>
+                    <img src='frame/icon-6.png'>
+                    <span>德国</span>
+                    <img src='frame/icon-7.png'>
+                    <span>16500港币</span>
+                </div>
+            </div>
+            <div class='right'>
+                <img src='images/img-10.jpg' mode='scaleToFill'>
+            </div>
+        </div>
+
+        <div class='item'>
+            <div class='left'>
+                <span class='i1'>Opdivo-100mg</span>
+                <span class='i2'>注射液:40 mg/4 mL与100 mg/10 mL</span>
+                <div class='i3'>
+                    <img src='frame/icon-6.png'>
+                    <span>德国</span>
+                    <img src='frame/icon-7.png'>
+                    <span>16500港币</span>
+                </div>
+            </div>
+            <div class='right'>
+                <img src='images/img-9.jpg' mode='scaleToFill'>
+            </div>
+        </div>
+
+        <div class='item'>
+            <div class='left'>
+                <span class='i1'>Opdivo-100mg</span>
+                <span class='i2'>注射液:40 mg/4 mL与100 mg/10 mL</span>
+                <div class='i3'>
+                    <img src='frame/icon-6.png'>
+                    <span>德国</span>
+                    <img src='frame/icon-7.png'>
+                    <span>16500港币</span>
+                </div>
+            </div>
+            <div class='right'>
+                <img src='images/img-10.jpg' mode='scaleToFill'>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script type="text/javascript">
+    $(function(){
+        $("body").height($(window).height());
+    })
+</script>
+</html>

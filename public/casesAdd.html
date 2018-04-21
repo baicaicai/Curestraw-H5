@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>增添病例</title>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script src="js/IMGUP.js"></script>
+    <script type="text/javascript" src="js/picker.min.js"></script>
+    <style type="text/css">
+      .page{
+        background: #ebf2f1;
+      }
+
+      .info{
+        background: #fff;
+        padding: 0 calc(25rem / 75);
+      }
+      .info .i1 {
+        display: flex;
+        align-items: center;
+        position: relative;
+        border-bottom: calc(1rem / 75) solid #e3e3e3;
+        height: 1.3rem;
+      }
+      .info .i1 .o1{
+        width: calc(150rem / 75);
+        font-size: calc(34rem / 75);
+        font-weight: bold;
+        margin-right: calc(50rem / 75);
+      }
+      .info .i1 .o2{
+        flex: 1;
+        text-align: right;
+        font-size: calc(30rem / 75);
+        padding: calc(20rem / 75) 0;
+      }
+
+      .info .i4 {
+        display: flex;
+        align-items: center;
+        position: relative;
+        border-bottom: calc(1rem / 75) solid #e3e3e3;
+        height: 1.3rem;
+      }
+      .info .i4 .o1{
+        width: calc(150rem / 75);
+        font-size: calc(34rem / 75);
+        font-weight: bold;
+        margin-right: calc(50rem / 75);
+      }
+      .info .i4 .o2{
+        flex: 1;
+        text-align: right;
+        font-size: calc(30rem / 75);
+        padding: calc(16rem / 75) 0;
+        display: flex;
+        justify-content: flex-end;
+      }
+      .info .i4 .o2 label{
+        display: flex;
+        align-items: center;
+        width: calc(130rem / 75);
+        justify-content: flex-end;
+        margin-left: calc(30rem / 75);
+      }
+      .infobox .i4 .o2 label radio{
+        margin-right: calc(10rem / 75);
+      }
+      .info .i4 .o2 label span{
+        
+      }
+
+      .info .i2 {
+        display: flex;
+        align-items: center;
+        position: relative;
+        border-bottom: calc(1rem / 75) solid #e3e3e3;
+        height: 1.3rem;
+        justify-content: space-between;
+      }
+      .info .i2 .o1{
+        width: calc(150rem / 75);
+        font-size: calc(34rem / 75);
+        font-weight: bold;
+        margin-right: calc(50rem / 75);
+      }
+      .info .i2 .o2{
+        flex: 1;
+        text-align: right;
+        font-size: calc(30rem / 75);
+        height: 100%;
+        padding: calc(20rem / 75) 0;
+      }
+      .info .i2 .o2 img{
+        width: calc(120rem / 75);
+        height: calc(120rem / 75);
+        border-radius: 50%;
+      }
+      .info .i2 .o3{
+        width: calc(30rem / 75);
+        height: calc(40rem / 75);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        right: 0;
+      }
+
+      .box{
+        background: #fff;
+        margin-top: calc(20rem / 75);
+        padding:0 calc(25rem / 75);
+        padding-bottom: calc(30rem / 75);
+        position: relative;
+        z-index: 9;
+      }
+      .box .i1{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: calc(30rem / 75) 0;
+      }
+      .box .i1 span{
+        font-size: calc(34rem / 75);
+        font-weight: bold;
+      }
+      .box .i1 div{
+        font-size: calc(28rem / 75);
+        color: #888;
+      }
+      .box .i2{
+        width: 100%;
+      }
+      .box .i2 textarea{
+        background: #f5f8f8;
+        width: 100%;
+        padding: calc(25rem / 75);
+        box-sizing: border-box;
+        font-size: calc(30rem / 75);
+        line-height: calc(50rem / 75);
+        z-index: 9;
+        border: none;
+        height: 4rem;
+        outline: none;
+      }
+      .box .i3 {
+
+      }
+      .box .i3 span{
+        font-size: calc(26rem / 75);
+        color: #888;
+        display: block;
+        padding: calc(40rem / 75) 0 calc(30rem / 75) 0;
+      }
+      .box .i3 .picUpload{
+        display: flex
+      }
+      .box .i3 .picUpload button {
+        width: calc(150rem / 75);
+        height: calc(150rem / 75);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        float: left;
+        margin: 0;
+      }
+      .box .i3 .picUpload button img{
+        width: calc(150rem / 75);
+        height: calc(150rem / 75);
+      }
+
+      .box .i3 .picUpload> image{
+        width: calc(150rem / 75);
+        height: calc(150rem / 75);
+        box-sizing: border-box;
+        border: calc(1rem / 75) solid #e3e3e3;
+        float: left;
+        margin-right: calc(20rem / 75);
+      }
+
+      .btn{
+        display: flex;
+        background: #30c4b6;
+        height: calc(100rem / 75);
+        margin-top: calc(20rem / 75);
+        align-items: center;
+        justify-content: center;
+      }
+      .btn img{
+        width: calc(50rem / 75);
+        height: calc(50rem / 75);
+        margin-right: calc(10rem / 75);
+      }
+      .btn span{
+        font-size: calc(36rem / 75);
+        color: #fff;
+      }
+
+
+
+    </style>
+</head>
+<body>
+<nav class='fHead'>
+    <a>
+      <img src='frame/icon-37.png'>
+    </a>
+    <span>增添病例</span>
+</nav>
+<div class="page">
+    <div class='info'>
+      <div class='i1'>
+        <span class='o1'>患者姓名</span>
+        <input class='o2' placeholder='请在此输入真实姓名'></input>
+      </div>
+
+      <div class='i4'>
+          <span class='o1'>性别</span>
+          <ul class="checkBox">
+              <li class="active">
+                  <i></i>
+                  <a>男</a>
+              </li>
+              <li>
+                  <i></i>
+                  <a>女</a>
+              </li>
+              <input type="text" name="" value="">
+          </ul>
+      </div>
+
+      <div class='i2'>
+          <span class='o1'>出生日期</span>
+          <a class="pickerBox">
+                <span id="picker1">请选择出生日期</span>
+                <i></i>
+          </a>
+      </div>
+
+      <div class='i2'>
+          <span class='o1'>疾病类型</span>
+          <a class="pickerBox">
+              <span id="picker2">请选择疾病类型</span>
+              <i></i>
+          </a>
+      </div>
+
+      <div class='i2'>
+          <span class='o1'>疾病阶段</span>
+          <a class="pickerBox">
+              <span id="picker3">请选择疾病阶段</span>
+              <i></i>
+          </a>
+      </div>
+    </div>
+
+    <div class='box'>
+      <div class='i1'>
+        <span>描述</span>
+        <div><a id="ta1Num">0</a>/200</div>
+      </div>
+      <div class='i2'>
+        <textarea placeholder='请填写医生建议或者病例的其他说明'  maxlength='200' id="ta1"></textarea>
+      </div>
+      <div class='i3'>
+        <span>上传病例、CT影像、病理检验报告及基因检测报告(如有)</span>
+        <div class="uploadImg">
+            <ul class="z_photo">
+                <div>
+                    <div id="div_imgfile" class="file"></div>
+                    <ul id="div_imglook">
+                        <div style="clear: both;width: auto;"></div>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class='box'>
+      <div class='i1'>
+        <span>用药方案</span>
+      </div>
+      <div class='i2'>
+        <textarea placeholder='请填写国内医生建议的用药方案，请具体标明药品商品名，规格及数量;例如: 易瑞沙  规格: 250mg*30片  数量: 两瓶'></textarea>
+      </div>
+    </div>
+
+    <div class='btn'>
+      <img src='frame/icon-36.png'>
+      <span>获取用药建议</span>
+    </div>
+    
+
+</div>
+</body>
+<script type="text/javascript">
+    $(function(){
+        $("body").height($(window).height());
+        checkBox();
+
+        /* 字数计算 */
+        $("#ta1").bind('input propertychange',function(){
+            $("#ta1Num").text($(this).val().length)
+        })
+
+        var nameEl1 = document.getElementById('picker1');
+        var data11 = [
+            {
+                text: '1999',
+                value: 1
+            }, {
+                text: '2000',
+                value: 2
+            }, {
+                text: '2001',
+                value: 3
+            }, {
+                text: '2002',
+                value: 4
+            }, {
+                text: '2003',
+                value: 5
+            }, {
+                text: '2004',
+                value: 6
+            }, {
+                text: '2005',
+                value: 7
+            }, {
+                text: '2005',
+                value: 8
+            }
+        ];
+
+        var data12 = [
+            {
+                text: '1月',
+                value: 1
+            }, {
+                text: '2月',
+                value: 2
+            }, {
+                text: '3月',
+                value: 3
+            }, {
+                text: '4月',
+                value: 4
+            }, {
+                text: '5月',
+                value: 5
+            }, {
+                text: '6月',
+                value: 6
+            }, {
+                text: '7月',
+                value: 7
+            }, {
+                text: '8月',
+                value: 8
+            }
+        ];
+
+        var data13 = [
+            {
+                text: '1日',
+                value: 1
+            }, {
+                text: '2日',
+                value: 2
+            }, {
+                text: '3日',
+                value: 3
+            }, {
+                text: '4日',
+                value: 4
+            }, {
+                text: '5日',
+                value: 5
+            }, {
+                text: '6日',
+                value: 6
+            }, {
+                text: '7日',
+                value: 7
+            }, {
+                text: '7日',
+                value: 8
+            }
+        ];
+        var picker1 = new Picker({
+            data: [data11,data12,data13],
+            selectedIndex: [0,1,2],
+            title: '出生日期'
+        });
+        picker1.on('picker.select', function (selectedVal, selectedIndex) {
+            nameEl1.innerText = data11[selectedIndex[0]].text + '-' + data12[selectedIndex[1]].text + '-' + data13[selectedIndex[2]].text;
+        })
+        nameEl1.addEventListener('click', function () {
+            picker1.show();
+        });
+
+
+        var nameEl2 = document.getElementById('picker2');
+        var data2 = [
+            {
+                text: '感冒',
+                value: 1
+            }, {
+                text: '发烧',
+                value: 2
+            }, {
+                text: '流鼻涕',
+                value: 3
+            }
+        ];
+
+        var picker2 = new Picker({
+            data: [data2],
+            selectedIndex: [0],
+            title: '疾病类型'
+        });
+        picker2.on('picker.select', function (selectedVal, selectedIndex) {
+            nameEl2.innerText = data2[selectedIndex[0]].text;
+        })
+        nameEl2.addEventListener('click', function () {
+            picker2.show();
+        });
+
+        var nameEl3 = document.getElementById('picker3');
+        var data3 = [
+            {
+                text: 'I期',
+                value: 1
+            }, {
+                text: 'II期',
+                value: 2
+            }, {
+                text: 'III期',
+                value: 3
+            }, {
+                text: 'IV期',
+                value: 4
+            }, {
+                text: 'V期',
+                value: 5
+            }, {
+                text: 'VI期',
+                value: 6
+            }
+        ];
+
+        var picker3 = new Picker({
+            data: [data3],
+            selectedIndex: [0],
+            title: '疾病阶段'
+        });
+        picker3.on('picker.select', function (selectedVal, selectedIndex) {
+            nameEl3.innerText = data3[selectedIndex[0]].text;
+        })
+        nameEl3.addEventListener('click', function () {
+            picker3.show();
+        });
+
+    })
+</script>
+</html>

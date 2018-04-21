@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>我的病例</title>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <style type="text/css">
+    .page{
+      background: #30c4b6;
+      padding-bottom: calc( 25rem / 75 );
+    }
+
+    .box{
+      background: #fff;
+      margin: calc( 25rem / 75 );
+      padding: calc( 25rem / 75 ) calc( 30rem / 75 );
+      border-radius: calc( 10rem / 75 );
+    }
+    .box .info {
+      border-bottom: calc( 1rem / 75 ) dashed #e3e3e3;
+      padding-bottom: calc( 25rem / 75 );
+    }
+    .box .i1{
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: calc( 20rem / 75 ) 0;
+    }
+    .box .i1 .o1{
+      width: calc( 150rem / 75 );
+      font-size: calc( 32rem / 75 );
+      font-weight: bold;
+      margin-right: calc( 50rem / 75 );
+    }
+    .box .i1 .o2{
+      flex: 1;
+      text-align: right;
+      font-size: calc( 32rem / 75 );
+      display: flex;
+      justify-content: flex-end;
+    }
+    .dashed{
+      border-bottom: calc( 1rem / 75 ) dashed #e3e3e3; 
+    }
+
+    .box .i2{
+      border-bottom: calc( 1rem / 75 ) dashed #e3e3e3;
+      padding-bottom: calc( 20rem / 75 );
+    }
+    .box .i2:last-child{
+      border-bottom: none;
+    }
+    .box .i2 .o1{
+      display: block;
+      width: calc( 150rem / 75 );
+      font-size: calc( 32rem / 75 );
+      font-weight: bold;
+      margin-right: calc( 50rem / 75 );
+      padding: calc( 20rem / 75 ) 0;
+    }
+    .box .i2 .o2{
+      font-size: calc( 28rem / 75 );
+      line-height: calc( 40rem / 75 );
+      margin-bottom: calc( 25rem / 75 );
+      display: block;
+    }
+    .box .i2 .o3{
+      display: flex;
+      margin-bottom: calc( 25rem / 75 );
+    }
+    .box .i2 .o3 img{
+      width: calc( 145rem / 75 );
+      height: calc( 145rem / 75 );
+      margin-right: calc( 20rem / 75 );
+    }
+    </style>
+</head>
+<body>
+<nav class='fHead'>
+    <a>
+      <img src='frame/icon-37.png'>
+    </a>
+    <span>我的病例</span>
+</nav>
+<div class="page">
+    <div class='box'>
+        <div class='info'>
+            <div class='i1'>
+                <span class='o1'>患者姓名</span>
+                <span class='o2'>欧阳庆丰</span>
+            </div>
+            <div class='i1'>
+                <span class='o1'>性别</span>
+                <span class='o2'>男</span>
+            </div>
+            <div class='i1'>
+                <span class='o1'>出生日期</span>
+                <span class='o2'>1959-06-26</span>
+            </div>
+            <div class='i1'>
+                <span class='o1'>疾病类型</span>
+                <span class='o2'>癌症</span>
+            </div>
+            <div class='i1'>
+                <span class='o1'>疾病阶段</span>
+                <span class='o2'>IV</span>
+            </div>
+        </div>
+
+        <div class='i2'>
+            <span class='o1'>描述</span>
+            <span class='o2'>引起肺癌的原因总的来说分为内因和外因，内因包括慢性炎症、遗传易感基因；外因包括吸烟、大气污染房屋装修、厨房油烟等</span>
+            <div class='o3'>
+                <img mode="aspectFill" src='images/img-11.jpg'>
+                <img mode="aspectFill" src='images/img-12.jpg'>
+                <img mode="aspectFill" src='images/img-14.jpg'>
+            </div>
+        </div>
+
+        <div class='i2'>
+            <span class='o1'>用药方案</span>
+            <span class='o2'>益肺清化膏：口服。一次20克，一日3次。两个月为一疗程，或遵医嘱。 生血丸：口服。一次5g，一日3次；小儿酌减。如与其他药物同时使用可能会发生药物相互作用，详情其咨询医师或药师。</span>
+        </div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    $(function(){
+        $("body").height($(window).height());
+    })
+</script>
+</html>

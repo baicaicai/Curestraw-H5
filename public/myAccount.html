@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>账户管理</title>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/picker.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <style type="text/css">
+        .page{
+          background: #ebf2f1;
+        }
+
+        .box{
+          background: #fff;
+          padding: 0 calc(25rem / 75);
+        }
+        .box .i1 {
+          display: flex;
+          align-items: center;
+          position: relative;
+          padding-right: calc(50rem / 75);
+          height: calc(180rem / 75);
+          border-bottom: calc(1rem / 75) solid #e3e3e3;
+          padding-right: calc(50rem / 75);
+        }
+        .box .i1 .o1{
+          width: calc(150rem / 75);
+          font-size: calc(34rem / 75);
+          font-weight: bold;
+          margin-right: calc(50rem / 75);
+        }
+        .box .i1 .o2{
+          flex: 1;
+          text-align: right;
+        }
+        .box .i1 .o2 img{
+          width: calc(120rem / 75);
+          height: calc(120rem / 75);
+          border-radius: 50%;
+        }
+        .box .i1 .o3{
+          width: calc(30rem / 75);
+          height: calc(40rem / 75);
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          right: 0;
+        }
+
+        .box .i2 {
+          display: flex;
+          align-items: center;
+          position: relative;
+          border-bottom: calc(1rem / 75) solid #e3e3e3;
+          height: 1.3rem;
+        }
+        .box .i2 .o1{
+          width: calc(150rem / 75);
+          font-size: calc(34rem / 75);
+          font-weight: bold;
+          margin-right: calc(50rem / 75);
+        }
+        .box .i2 .o2{
+          flex: 1;
+          text-align: right;
+          font-size: calc(30rem / 75);
+          height: 100%;
+        }
+
+
+        .box .i5 {
+          display: flex;
+          align-items: center;
+          position: relative;
+          border-bottom: calc(1rem / 75) solid #e3e3e3;
+          padding: .3rem 0;
+        }
+        .box .i5 .o1{
+          width: calc(150rem / 75);
+          font-size: calc(34rem / 75);
+          font-weight: bold;
+          margin-right: calc(50rem / 75);
+        }
+        .box .i5 .o2{
+          border: none;
+          flex: 1;
+          text-align: right;
+          font-size: calc(30rem / 75);
+          outline: none;
+
+        }
+
+        .box .i4 {
+          display: flex;
+          align-items: center;
+          position: relative;
+          border-bottom: calc(1rem / 75) solid #e3e3e3;
+          height: 1.3rem;
+        }
+        .box .i4 .o1{
+          width: calc(150rem / 75);
+          font-size: calc(34rem / 75);
+          font-weight: bold;
+          margin-right: calc(50rem / 75);
+        }
+        .box .i4 .o2{
+          flex: 1;
+          text-align: right;
+          font-size: calc(30rem / 75);
+          padding: calc(16rem / 75) 0;
+          display: flex;
+          justify-content: flex-end;
+        }
+        .box .i4 .o2 label{
+          display: flex;
+          align-items: center;
+          width: calc(130rem / 75);
+          justify-content: flex-end;
+          margin-left: calc(30rem / 75);
+        }
+        .box .i4 .o2 label input{
+          margin-right: calc(10rem / 75);
+          width: .4rem;
+          height: .4rem;
+        }
+        .box .i4 .o2 label span{
+          
+        }
+
+        .box .i3 {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          position: relative;
+          border-bottom: calc(1rem / 75) solid #e3e3e3;
+          height: 1.3rem;
+        }
+        .box .i3 .o1{
+          width: calc(150rem / 75);
+          font-size: calc(34rem / 75);
+          font-weight: bold;
+          margin-right: calc(50rem / 75);
+        }
+        .box .i3 .o2{
+          flex: 1;
+          text-align: right;
+          font-size: calc(30rem / 75);
+          height: 100%;
+          padding: calc(20rem / 75) 0;
+        }
+        .box .i3 .o2 img{
+          width: calc(120rem / 75);
+          height: calc(120rem / 75);
+          border-radius: 50%;
+        }
+        .box .i3 .o3{
+          width: calc(30rem / 75);
+          height: calc(40rem / 75);
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          right: 0;
+        }
+
+        .tip {
+          padding:calc(20rem / 75) calc(25rem / 75);
+          display: flex;
+          margin-bottom: calc(30rem / 75);
+        }
+        .tip .i1 {
+          font-size: calc(28rem / 75);
+          color: #f15c58;
+          line-height: calc(50rem / 75);
+          width: calc(30rem / 75);
+        }
+        .tip .i2 {
+          font-size: calc(28rem / 75);
+          color: #aab1b0;
+          line-height: calc(45rem / 75);
+        }
+
+        .btn {
+          padding: 0 calc(75rem / 75);
+        }
+        .btn button{
+          font-size: calc(36rem / 75);
+          color: #fff;
+          background-color: #1fcebe;
+          box-shadow: 0px calc(14rem / 75) calc(14rem / 75) 0px rgba(48, 196, 182, 0.3);
+          border-radius: calc(5rem / 75);
+          width: 100%;
+          padding: .3rem 0;
+        }
+        .btn button::after{
+          border: none
+        }
+
+
+    </style>
+</head>
+<body>
+<nav class='fHead'>
+    <a>
+        <img src='frame/icon-37.png'>
+    </a>
+    <span>账户管理</span>
+</nav>
+<div class="page">
+    <div class='box'>
+      <div class='i1'>
+          <span class='o1'>头像</span>
+          <a class='o2'>
+              <img src='frame/icon-30.png'>
+          </a>
+          <img class='o3' src='frame/icon-22.png'>
+      </div>
+      
+      <div class='i2'>
+          <span class='o1'>昵称</span>
+          <input class='o2' value='胡志明'></input>
+      </div>
+
+      <div class='i4'>
+          <span class='o1'>性别</span>
+          <ul class="checkBox">
+              <li class="active">
+                  <i></i>
+                  <a>男</a>
+              </li>
+              <li>
+                  <i></i>
+                  <a>女</a>
+              </li>
+              <input type="text" name="" value="">
+          </ul>
+      </div>
+
+      <div class='i3'>
+          <span class='o1'>生日</span>
+          <a class="pickerBox">
+              <span id="picker1">第1天</span>
+              <i></i>
+          </a>
+      </div>
+
+      <div class='i2'>
+          <span class='o1'>手机号码</span>
+          <input class='o2' value='18812345678' type='number'></input>
+      </div>
+
+      <div class='i3'>
+          <span class='o1'>所在地区</span>
+          <a class="pickerBox">
+              <span id="picker2">第1天</span>
+              <i></i>
+          </a>
+      </div>
+
+      <div class='i5'>
+          <span class='o1'>详细地址</span>
+          <textarea auto-height='auto' class='o2'  placeholder="请输入详细地址"></textarea>
+      </div>
+    </div>
+
+    <div class='tip'>
+        <span class='i1'>*</span>
+        <span class='i2'>我们理解隐私对于您的重要性，将会对您的信息进行严格保密</span>
+    </div>
+
+    <div class='btn'>
+        <button>保存</button>
+    </div> 
+    
+
+</div>
+</body>
+<script type="text/javascript">
+    $(function(){
+        $("body").height($(window).height());
+        checkBox();
+        var nameEl1 = document.getElementById('picker1');
+        var data1 = [
+            {
+                text: '第1天',
+                value: 1
+            }, {
+                text: '第2天',
+                value: 2
+            }, {
+                text: '第3天',
+                value: 3
+            }, {
+                text: '第4天',
+                value: 4
+            }, {
+                text: '第5天',
+                value: 5
+            }, {
+                text: '第6天',
+                value: 6
+            }, {
+                text: '第7天',
+                value: 7
+            }, {
+                text: '第8天',
+                value: 8
+            }
+        ];
+
+        var picker1 = new Picker({
+            data: [data1],
+            selectedIndex: [0],
+            title: '选择天数'
+        });
+        picker1.on('picker.select', function (selectedVal, selectedIndex) {
+            nameEl1.innerText = data1[selectedIndex[0]].text;
+        })
+        nameEl1.addEventListener('click', function () {
+            picker1.show();
+        });
+
+        var nameEl2 = document.getElementById('picker2');
+        var data2 = [
+            {
+                text: '第1天',
+                value: 1
+            }, {
+                text: '第2天',
+                value: 2
+            }, {
+                text: '第3天',
+                value: 3
+            }, {
+                text: '第4天',
+                value: 4
+            }, {
+                text: '第5天',
+                value: 5
+            }, {
+                text: '第6天',
+                value: 6
+            }, {
+                text: '第7天',
+                value: 7
+            }, {
+                text: '第8天',
+                value: 8
+            }
+        ];
+
+        var picker2 = new Picker({
+            data: [data2],
+            selectedIndex: [0],
+            title: '选择天数'
+        });
+        picker2.on('picker.select', function (selectedVal, selectedIndex) {
+            nameEl2.innerText = data2[selectedIndex[0]].text;
+        })
+        nameEl2.addEventListener('click', function () {
+            picker2.show();
+        });
+    })
+</script>
+</html>
