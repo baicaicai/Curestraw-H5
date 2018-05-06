@@ -25,8 +25,10 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
+     /*去掉代码规范验证*/
+      /*
     preLoaders: [
-      {
+     {
         test: /\.vue$/,
         loader: 'eslint',
         include: projectRoot,
@@ -38,7 +40,7 @@ module.exports = {
         include: projectRoot,
         exclude: /node_modules/
       }
-    ],
+    ],*/
     loaders: [
       {
         test: /\.vue$/,

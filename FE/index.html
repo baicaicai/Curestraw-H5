@@ -2,10 +2,42 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>fe</title>
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="./static/css/app.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/swiper.min.css">
+    <script type="text/javascript" src="./static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/app.js"></script>
+    <script type="text/javascript" src="./static/js/swiper.min.js"></script>
   </head>
   <body>
+
+    <div id="app">
     <app></app>
+    </div>
     <!-- built files will be auto injected -->
+    <footer>
+    <a class="active" href="">
+        <i></i>
+        <span>首页</span>
+    </a>
+    <a href="">
+        <i></i>
+        <span>药物信息</span>
+    </a>
+    <a href="">
+        <i></i>
+        <span>我的</span>
+    </a>
+</footer>
   </body>
+<script type="text/javascript">
+    $(function(){
+       $("body").height($(window).height());
+       // var mySwiper = new Swiper('.swiper-container',{
+        //    loop: true,
+       //     autoplay: 3000,
+       //     pagination: '.swiper-pagination'
+      //  });
+    })
+</script>
 </html>
