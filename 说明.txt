@@ -39,3 +39,4 @@ src\components 建一个Home.vue
 
 vuex\modules 建一个myHello.js
 
+升级npm  npm update -g  

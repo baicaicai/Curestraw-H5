@@ -21,9 +21,11 @@
 
  export default {
      ready () {
+        console.log("header ready")
      // this.autoplaySwiper()
     },
     methods: {
+      console.log("header ready")
       autoplaySwiper () {
          // document.body.height=window.height;
         //  this.headSwiper=new Swiper('.swiper-container',{
@@ -34,7 +36,7 @@
     }
   }
 
-<style scoped>
+<!--<style scoped>
     .page {
             background: #ebf2f1;
             padding-bottom: calc(20rem / 75);
@@ -197,4 +199,4 @@
           width: calc( 30rem / 75 );
           height: calc( 40rem / 75 );
         }
-</style>
+</style>-->

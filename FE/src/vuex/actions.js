@@ -29,3 +29,11 @@ export const getMedicineList = function ({ dispatch }) {
   })
 }
 
+export const getMedicineDetail = function ({ dispatch }, objId) {
+  this.$http.get(API_ROOT + 'api/medicine-detail/' + objId).then(response => {
+    dispatch(types.GET_MEDICINEDATA, JSON.parse(response.body))
+  }, error => {
+    dispatch(types.GET_MEDICINEDATA_FAILURE, error)
+  })
+}
+

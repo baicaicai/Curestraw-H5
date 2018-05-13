@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import contentList from './modules/contentList'
 import myHello from './modules/myHello'
 import medicineList from './modules/medicineList'
+import medicineData from './modules/medicineData'
 
 
 Vue.use(Vuex)
@@ -15,6 +16,7 @@ export default new Vuex.Store({
   modules: {
     contentList,
     myHello,
-    medicineList
+    medicineList,
+    medicineData
   }
 })

@@ -48,6 +48,19 @@ router.map({
     component: function (resolve) {
       require(['./components/Home'], resolve)
     }
+  },
+   '/medicineDetail/:objId': {
+    title: '药物详情',
+     name: 'medicineDetail',
+    component: function (resolve) {
+      require(['./components/MedicineDetail'], resolve)
+    }
+  },
+   '/medicineShowList': {
+    title: '药物列表',
+    component: function (resolve) {
+      require(['./components/MedicineDetail'], resolve)
+    }
   }
 })
 
@@ -58,7 +71,7 @@ router.afterEach(function (transition) {
 });
 
 router.redirect({
-  '/index': '/home'
+  '/': '/home'
 })
 
 router.start(App, '#app')

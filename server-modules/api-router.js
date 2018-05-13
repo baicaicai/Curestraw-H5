@@ -19,7 +19,9 @@ const content = require('./content')
 router.get('/hello', hello.hello);
 router.get('/content-list', content.contentList)
 router.get('/content-hello', hello.hello)
+router.get('/medicine-list/:manufactor/:cName/:limitCount', content.medicineList)
 router.get('/medicine-list', content.medicineList)
+router.get('/medicine-detail/:medicineId', content.medicineDetail)
 
 
 // 测试 async/await 支持

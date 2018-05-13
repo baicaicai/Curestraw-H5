@@ -42,13 +42,13 @@
       }
     },
     created () {
-      //console.log("config NODE_ENV="+process.env.NODE_ENV);
-      // console.log("start myHello")
+      console.log("config NODE_ENV="+process.env.NODE_ENV);
+       console.log("start myHello")
       this.getMyHello()
-       //console.log("end myHello")
+       console.log("end myHello")
       this.getList()
-     // console.log(myHello)
-     // console.log(items)
+     console.log(myHello)
+      console.log(items)
     }
   }
 </script>

@@ -45,6 +45,7 @@ pub.hello = (req, res) => {
 
 // 获取文章列表
 pub.contentList = async(req, res) => {
+   tool.l('contentList');
   const queryContentList = () => {
      var query = new AV.Query('order_info')
      query.include('owner')
@@ -89,20 +90,52 @@ pub.contentList = async(req, res) => {
 }
 
 pub.medicineList = async(req, res) => {
+   tool.l('medicineList');
+  const manufactor = req.params.manufactor
+  const cName = req.params.cName
+  const limitCount = req.params.limitCount
   const queryMdicineList = () => {
      var query = new AV.Query('Products')
-     query.descending('createdAt');
-     query.limit(10)// 返回 10 条数据
+    if (manufactor === '' && cName === '')
+    {
+        query.descending('createdAt');
+          if (limitCount === '')
+          {
+            query.limit(10)// 返回 10 条数据
+          }
+          else
+          {
+             query.limit(limitCount)// 返回 10 条数据
+          }
+    }
+    else
+    {
+      if (manufactor === ''){
+        query.notEqualTo("manufactor", manufactor);
+      }
+       if (cName === ''){
+       query.equalTo("cName", cName);
+      }
+      query.descending('createdAt');
+       if (limitCount === '')
+          {
+            query.limit(10)// 返回 10 条数据
+          }
+          else
+          {
+            query.limit(limitCount)// 返回 10 条数据
+          }  
+    }
      return query.find()
   }
+  let arr = []
   try {
     const mdicines = await queryMdicineList()
-     console.log("mdicines="+mdicines)
     if (mdicines) {
-      let arr = []
+     
       for (let mdicine of mdicines) {
         let result = {}
-        result.obj_id = mdicine.get('objectId')
+        result.objectId = mdicine.get('objectId')
         result.title = mdicine.get('title')
         result.origin = mdicine.get('origin')
         result.packageSize1 = mdicine.get('packageSize1')
@@ -112,10 +145,54 @@ pub.medicineList = async(req, res) => {
         result.thumbImageUrl = mdicine.get('thumbImageUrl')
         result.createTime = mdicine.get('createdAt').Format("yyyy-MM-dd hh:mm:ss")
         result.updateTime = mdicine.get('createdAt').Format("yyyy-MM-dd hh:mm:ss")
+        //  tool.l( result.objectId);
         arr.push(result)
       }
+     res.send(arr)
+    } else {
+      throw new Error('Can not find.');
+    }
+  }
+  catch (error) {
+    tool.l(error)
+  }
+}
 
-      res.send(arr)
+
+// 根据 id 获取 comments 列表
+pub.medicineDetail = async(req, res) => {
+  const medicineId = req.params.articleId
+  if (medicineId === '') {
+    res.status(500).send('id is empty')
+  }
+  const queryMedicineData = () => {
+     var query = new AV.Query('Products');
+     return query.get(medicineId)
+  }
+
+  try {
+    const data = await queryMedicineData()
+
+    if (data) {
+        let arr = []
+        let result = {}
+        result.objectId = data.get('objectId')
+        result.imageUrl = data.get('imageUrl')
+        result.title = data.get('title')
+        result.cName = data.get('cName')
+        result.eName = data.get('eName')
+        result.packageSize1 = data.get('packageSize1')
+        result.price1 = data.get('price1')
+        result.currency = data.get('currency')
+        result.manufactor = data.get('manufactor')
+        result.origin = data.get('origin')
+        result.manufactor = data.get('manufactor')
+        result.result = data.get('result')
+        result.desc = data.get('desc')
+        result.createdAt = data.get('createdAt').Format("yyyy-MM-dd hh:mm:ss")
+        //arr = queryMedicineList(result.manufactor,result.cName,2)
+        result.ortherMdicines=arr
+        res.send(result)
     } else {
       throw new Error('Can not find.');
     }

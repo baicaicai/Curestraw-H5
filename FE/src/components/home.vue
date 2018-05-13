@@ -3,7 +3,6 @@
 
   <div class="page page2">
    <Vheader></Vheader>
-
     <a class='ask'>
         <div class='left'>
             <div class='i1'>
@@ -40,8 +39,20 @@
         </a>
     </div>
 
+     <div class='list'>
+         <input type="button" value="按钮1" v-on:click="gotoMedicineDetail('123')">
+        <div class='item' v-on:click="gotoMedicineDetail('123')">
+
+            <div class='left'>
+                <span class='i1'>6666666666666666</span>
+            </div>
+      </div>
+    </div>
+
     <div class='list'>
-        <div class='item' v-for="item in items">
+        <div class='item' v-for="item in items" v-on:click="gotoMedicineDetail(item.objectId)">
+       <input type="button" value="{{item.objectId}}" v-on:click="gotoMedicineDetail(item.objectId)">
+
         <!--  <a v-link="{ name: 'showproduct', params: {id: item.objectId}}">-->
             <div class='left'>
                 <span class='i1'>{{item.title}}</span>
@@ -65,7 +76,7 @@
 <script type="text/babel">
   import Vheader from '../components/Vheader'
   import {medicineList} from '../vuex/getters'
-  import {getMedicineList} from '../vuex/actions'
+  import {getMedicineList,getMedicineDetail} from '../vuex/actions'
 
   export default {
     components: {
@@ -76,18 +87,30 @@
          items: medicineList
       },
       actions: {
-         getList: getMedicineList
+         getList: getMedicineList,
+         getDetail:getMedicineDetail
       }
     },
     created () {
+       console.log("home created")
       this.getList()
-    }
+    },
+    mounted: {
+    },
+     methods: {
+       gotoMedicineDetail:function(objId){
+           console.log("gotoMedicineDetail")
+            console.log("gotoMedicineDetail"+objId)
+           this.getDetail(objId);
+           // this.$router.push({ name: 'medicineDetail', params: { medicineId: objId }})
+          }
+     }
   }
 
 </script>
 
 
-<style scoped>
+<style socped>
     .page {
             background: #ebf2f1;
             padding-bottom: calc(20rem / 75);
@@ -251,4 +274,3 @@
           height: calc( 40rem / 75 );
         }
 </style>
-
