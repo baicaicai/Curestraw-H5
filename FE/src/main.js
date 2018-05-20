@@ -24,12 +24,12 @@ Vue.http.options.emulateJSON = true
 /*
 const routes = [
       { path:'/home', component: App }
-]
-*/
+]*/
+
 const router = new VueRouter({
   history: true,
   hashbang: false
-  //routes
+ // routes
 })
 
 
@@ -49,7 +49,7 @@ router.map({
       require(['./components/Home'], resolve)
     }
   },
-   '/medicineDetail/:objId': {
+   '/medicineDetail/:medicineId': {
     title: '药物详情',
      name: 'medicineDetail',
     component: function (resolve) {

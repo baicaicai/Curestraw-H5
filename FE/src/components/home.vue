@@ -39,7 +39,7 @@
         </a>
     </div>
 
-     <div class='list'>
+      <!-- <div class='list'>
          <input type="button" value="按钮1" v-on:click="gotoMedicineDetail('123')">
         <div class='item' v-on:click="gotoMedicineDetail('123')">
 
@@ -47,11 +47,11 @@
                 <span class='i1'>6666666666666666</span>
             </div>
       </div>
-    </div>
+    </div>-->
 
     <div class='list'>
         <div class='item' v-for="item in items" v-on:click="gotoMedicineDetail(item.objectId)">
-       <input type="button" value="{{item.objectId}}" v-on:click="gotoMedicineDetail(item.objectId)">
+      <!-- <input type="button" value="{{item.objectId}}" v-on:click="gotoMedicineDetail(item.objectId)">-->
 
         <!--  <a v-link="{ name: 'showproduct', params: {id: item.objectId}}">-->
             <div class='left'>
@@ -99,10 +99,8 @@
     },
      methods: {
        gotoMedicineDetail:function(objId){
-           console.log("gotoMedicineDetail")
-            console.log("gotoMedicineDetail"+objId)
-           this.getDetail(objId);
-           // this.$router.push({ name: 'medicineDetail', params: { medicineId: objId }})
+           // console.log("gotoMedicineDetail"+objId)
+           this.$router.go({path:'/medicineDetail/'+objId})
           }
      }
   }

@@ -94,7 +94,7 @@
           <a><img src='../assets/frame/icon-16.png'></a>
         </div>
       <div class='list'>
-          <div class='item'v-for="item in items">
+          <div class='item'v-for="item in product.ortherMdicines" v-on:click="gotoMedicineDetail(item.objectId)">
               <div class='left'>
                <span class='i1'>{{item.title}}</span>
                 <span class='i2'>{{item.origin}} {{item.packageSize1}}</span>
@@ -111,7 +111,7 @@
           </div>
     </div> 
 
-    <a class='ask'>
+   <!-- <a class='ask'>
         <div class='left'>
           <div class='i1'>
               <div>
@@ -128,7 +128,7 @@
         <div class='right'>
             <img src='../assets/frame/icon-22.png'>
         </div>
-    </a>
+    </a>-->
 
 
 </div>
@@ -139,19 +139,31 @@
   import {getMedicineDetail} from '../vuex/actions'
 
   export default {
+     data () {
+      return {
+        finalProduct: []
+      }
+    },
     vuex: {
       getters: {
-        product: medicineData,
-        items: medicineData.ortherMdicines
+        product: medicineData
+        //items: medicineData.ortherMdicines
       },
       actions: {
          getProduct: getMedicineDetail,
       }
     },
     created () {
-    //  this.getMedicine(this.$route.params.id)
-    }
-     
+       console.log("MedicineDetail created")
+      this.getProduct(this.$route.params.medicineId)
+    },
+      methods: {
+       gotoMedicineDetail:function(objId){
+           this.$router.go({path:'/medicineDetail/'+objId})
+            this.getProduct(objId)
+            scrollTo(0,0)
+          }
+     }
   }
 
 </script>
