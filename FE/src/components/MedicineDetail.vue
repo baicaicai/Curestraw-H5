@@ -155,7 +155,7 @@
       }
     },
     created () {
-       console.log("MedicineDetail created")
+      // console.log("MedicineDetail created")
       this.getProduct(this.$route.params.medicineId)
     },
       methods: {

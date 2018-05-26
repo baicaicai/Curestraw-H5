@@ -95,26 +95,28 @@ pub.medicineList = async (req, res) => {
   const cName = req.params.cName
   const limitCount = req.params.limitCount
   const queryMdicineList = () => {
-    var query = new AV.Query('Products')
-    if (manufactor === '' && cName === '') {
+    var query = new AV.Query('Products') 
+    if ((manufactor === ''||manufactor === 'undefined') && (cName === ''||cName === 'undefined') ) {
       query.descending('createdAt');
-      if (limitCount === '') {
-        query.limit(10)// 返回 10 条数据
+      if (limitCount === ''||limitCount === 'undefined') {
+        tool.l(10);
+        query.limit(5)// 返回 10 条数据
       }
       else {
+        tool.l(limitCount);
         query.limit(limitCount)// 返回 10 条数据
       }
     }
     else {
-      if (manufactor === '') {
+      if (!(manufactor === ''||manufactor === 'undefined')) {
         query.notEqualTo("manufactor", manufactor);
       }
-      if (cName === '') {
+      if (!(cName === ''||cName === 'undefined')) {
         query.equalTo("cName", cName);
       }
       query.descending('createdAt');
-      if (limitCount === '') {
-        query.limit(10)// 返回 10 条数据
+      if (limitCount === ''||limitCount === 'undefined') {
+        query.limit(5)// 返回 10 条数据
       }
       else {
         query.limit(limitCount)// 返回 10 条数据
