@@ -12,6 +12,8 @@ const state = {
   origin: '',
   result: '',
   desc: '',
+  sideEffect: '',
+  disease: '',
   createdAt: '',
   ortherMdicines: []
 }
@@ -30,6 +32,8 @@ const mutations = {
     state.origin = data.origin
     state.result = data.result
     state.desc = data.desc
+    state.sideEffect = data.sideEffect
+    state.disease = data.disease
     state.createdAt = data.createdAt
     state.ortherMdicines = data.ortherMdicines
   },

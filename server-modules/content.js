@@ -45,7 +45,7 @@ pub.hello = (req, res) => {
 
 // 获取文章列表
 pub.contentList = async (req, res) => {
-  tool.l('contentList');
+  //tool.l('contentList');
   const queryContentList = () => {
     var query = new AV.Query('order_info')
     query.include('owner')
@@ -90,7 +90,7 @@ pub.contentList = async (req, res) => {
 }
 
 pub.medicineList = async (req, res) => {
-   tool.l('medicineList');
+  // tool.l('medicineList');
   const manufactor = req.params.manufactor
   const cName = req.params.cName
   const limitCount = req.params.limitCount
@@ -156,7 +156,7 @@ pub.medicineList = async (req, res) => {
 // 根据 id 获取 comments 列表
 pub.medicineDetail = async (req, res) => {
   const medicineId = req.params.medicineId
-   tool.l('medicineDetail='+medicineId);
+   //tool.l('medicineDetail='+medicineId);
   if (medicineId === '' || medicineId === 'undefined') {
     res.status(500).send('id is empty')
   }
@@ -182,8 +182,10 @@ pub.medicineDetail = async (req, res) => {
       result.manufactor = data.get('manufactor')
       result.result = data.get('result')
       result.desc = data.get('desc')
+      result.sideEffect = data.get('sideEffect')
+      result.disease = data.get('disease')
       result.createdAt = data.get('createdAt').Format("yyyy-MM-dd hh:mm:ss")
-      arr = await queryOrtherMedicineList('','',3)
+      //arr = await queryOrtherMedicineList('','',3)//暂时去掉查关联的需求
       //arr = await queryOrtherMedicineList(result.manufactor,result.cName,3)
       //arr = queryMedicineList(result.manufactor,result.cName,2)
       result.ortherMdicines = arr
@@ -202,7 +204,7 @@ const testqueue = (msg) => {
 }
 
 const queryOrtherMedicineList = async (reqmanufactor, reqcName, reqlimitCount) => {
-  tool.l(reqmanufactor)
+  //tool.l(reqmanufactor)
   const manufactor = reqmanufactor
   const cName = reqcName
   const limitCount = reqlimitCount

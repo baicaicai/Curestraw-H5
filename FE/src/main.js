@@ -45,6 +45,7 @@ new Vue({
 router.map({
   '/home': {
     title: '首页',
+    name: 'myHome',
     component: function (resolve) {
       require(['./components/Home'], resolve)
     }

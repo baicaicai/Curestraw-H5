@@ -2,7 +2,7 @@
 <div class="page page2">
     <nav class='fHead fHead2'>
         <a>
-          <img src='../assets/frame/icon-37.png'>
+          <img src='../assets/frame/icon-37.png' v-link="{name: 'myHome'}">
         </a>
         <span>药物详情</span>
     </nav>    
@@ -75,7 +75,8 @@
         <div class='box'>
             <span class='i1'>适应症</span>
             <span class='i2'>适应证和用途:</span>
-            <span class='i2'>L{{product.disease}}</span>
+            <span class='i3'>L{{product.desc}}</span>
+            <span class='i3'>{{product.disease}}</span>
         </div>
         <div class='box'>
             <span class='i1'>预期效果</span>
@@ -83,11 +84,11 @@
         </div>
         <div class='box'>
             <span class='i1'>副作用及禁忌</span>
-            <span class='i3'>{{product.desc}}</span>
+            <span class='i3'>{{product.sideEffect}}</span>
         </div>
     </div>
 
-    <div class='other'>
+   <!-- <div class='other'>
         <div class='title'>
           <img src='../assets/frame/icon-17.png'>
           <span>其他国家或厂家生产的同化学名药品</span>
@@ -109,7 +110,7 @@
                    <img src="{{item.thumbImageUrl}}" mode='scaleToFill'>
               </div>
           </div>
-    </div> 
+    </div> -->
 
    <!-- <a class='ask'>
         <div class='left'>

@@ -92,7 +92,7 @@
       }
     },
     created () {
-       console.log("home created")
+       //console.log("home created")
       this.getList()
     },
     mounted: {
