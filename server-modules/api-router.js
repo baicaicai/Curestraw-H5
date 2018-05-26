@@ -28,7 +28,7 @@ router.get('/medicine-detail/:medicineId', content.medicineDetail)
 const f = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(123);
+      resolve(20180526);
     }, 2000);
   });
 };
