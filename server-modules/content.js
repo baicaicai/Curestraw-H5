@@ -90,32 +90,29 @@ pub.contentList = async (req, res) => {
 }
 
 pub.medicineList = async (req, res) => {
-  // tool.l('medicineList');
   const manufactor = req.params.manufactor
   const cName = req.params.cName
   const limitCount = req.params.limitCount
   const queryMdicineList = () => {
     var query = new AV.Query('Products') 
-    if ((manufactor === ''||manufactor === 'undefined') && (cName === ''||cName === 'undefined') ) {
+    if ((manufactor === ''||manufactor === undefined) && (cName === ''||cName === undefined) ) {
       query.descending('createdAt');
-      if (limitCount === ''||limitCount === 'undefined') {
-        tool.l(10);
+      if (limitCount === ''||limitCount === undefined) {
         query.limit(5)// 返回 10 条数据
       }
       else {
-        tool.l(limitCount);
         query.limit(limitCount)// 返回 10 条数据
       }
     }
     else {
-      if (!(manufactor === ''||manufactor === 'undefined')) {
+      if (!(manufactor === ''||manufactor === undefined)) {
         query.notEqualTo("manufactor", manufactor);
       }
-      if (!(cName === ''||cName === 'undefined')) {
+      if (!(cName === ''||cName === undefined)) {
         query.equalTo("cName", cName);
       }
       query.descending('createdAt');
-      if (limitCount === ''||limitCount === 'undefined') {
+      if (limitCount === ''||limitCount === undefined) {
         query.limit(5)// 返回 10 条数据
       }
       else {
@@ -159,7 +156,7 @@ pub.medicineList = async (req, res) => {
 pub.medicineDetail = async (req, res) => {
   const medicineId = req.params.medicineId
    //tool.l('medicineDetail='+medicineId);
-  if (medicineId === '' || medicineId === 'undefined') {
+  if (medicineId === '' || medicineId === undefined) {
     res.status(500).send('id is empty')
   }
   const queryMedicineData = () => {
