@@ -1,6 +1,7 @@
 'use strict';
 var AV = require('leanengine');
-process.env.NODE_ENV = 'development'
+//process.env.NODE_ENV = 'development'
+process.env.NODE_ENV = 'production'
 console.log("NODE_ENV="+process.env.NODE_ENV);
 AV.init({
   appId: process.env.LEANCLOUD_APP_ID,
